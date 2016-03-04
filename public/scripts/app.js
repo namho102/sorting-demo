@@ -472,14 +472,13 @@ function quickSort(barObj, taskObj) {
 
             do {
                 // taskObj.pushValues(values)
-
                 while (values[left_new] < pivot) {
-                    taskObj.pushValues([values[left_new], pivot]);
+                    // taskObj.pushValues([values[left_new], pivot]);
                     // taskObj.pushValues(values);
                     left_new += 1;
                 }
                 while (pivot < values[right_new]) {
-                    taskObj.pushValues([pivot, values[right_new]]);
+                    // taskObj.pushValues([pivot, values[right_new]]);
                     // taskObj.pushValues(values);
                     right_new -= 1;
                 }
