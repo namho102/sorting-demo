@@ -7,7 +7,7 @@ const algsList = [
     "Heap"
 ];
 const size = [5, 10, 20, 30, 50, 70, 100];
-const speed = ['1x', '2x', '3x', '4x', '5x'];
+const speed = ['5x', '4x', '3x', '2x', '1x'];
 
 class Controller {
     constructor() {

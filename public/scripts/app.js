@@ -8,7 +8,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var algsList = ["Bubble", "Selection", "Insertion", "Quick", "Merge", "Heap"];
 var size = [5, 10, 20, 30, 50, 70, 100];
-var speed = ['1x', '2x', '3x', '4x', '5x'];
+var speed = ['5x', '4x', '3x', '2x', '1x'];
 
 var Controller = function () {
     function Controller() {
@@ -521,13 +521,13 @@ function mergeSort(barObj, taskObj) {
         // console.log("Splitting ", alist);
         // console.log(alist);
         // taskObj.pushValues(alist);
-         if (alist.length > 1) {
+          if (alist.length > 1) {
             var mid = Math.floor(alist.length / 2);
             var lefthalf = alist.slice(0, mid),
                 righthalf = alist.slice(mid);
-             _mergeSort(lefthalf);
+              _mergeSort(lefthalf);
             _mergeSort(righthalf);
-             var i = 0,
+              var i = 0,
                 j = 0,
                 k = 0;
             while (i < lefthalf.length && j < righthalf.length) {
@@ -541,16 +541,16 @@ function mergeSort(barObj, taskObj) {
                     taskObj.pushValues(alist);
                     j = j + 1;
                 }
-                 k = k + 1;
+                  k = k + 1;
             }
-              while (i < lefthalf.length) {
-                 alist[k] = lefthalf[i];
+                while (i < lefthalf.length) {
+                  alist[k] = lefthalf[i];
                 taskObj.pushValues(alist);
                 i = i + 1;
                 k = k + 1;
             }
-              while (j < righthalf.length) {
-                 alist[k] = righthalf[j];
+                while (j < righthalf.length) {
+                  alist[k] = righthalf[j];
                 taskObj.pushValues(alist);
                 j = j + 1;
                 k = k + 1;
