@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Visualization and Comparison of Sorting Algorithms</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="public/stylesheets/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="controls">
+            <div class="controls__algs">
+                <span class="controls__label">Algorithm</span>
+                <ul id="algs"></ul>
+            </div>
+            <div class="controls__group">
+                <div class="controls__size">
+                    <span class="controls__label">Size</span>
+                    <ul id="size"></ul>
+                </div>
+                <div class="controls__speed">
+                    <span class="controls__label">Speed</span>
+                    <ul id="speed"></ul>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <a id="reload"><i class="icon icon-arrows-cw">&#xe800;</i></a>
+            <a id="process"><i class="icon icon-play">&#xe801;</i></a>
+            <a id="start"><i class="icon icon-fast-fw">&#xe803;</i></a>
+        </div>
+        <div class="bars">
+            <div id="bars"></div>    
+            <div id="bars2"></div> 
+        </div>
+        
+    </div>
+    
+    <script src="public/libs/jquery.min.js"></script>
+    <script src="public/libs/d3.v3.min.js"></script>
+    <script src="public/scripts/utils.js"></script> 
+    <script src="public/scripts/app.js"></script>
+</body>
+
+</html>
