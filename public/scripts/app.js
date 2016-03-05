@@ -418,10 +418,11 @@ function selectionSort(barObj, taskObj) {
         }
 
         if (minIndex != i) {
+            // [values[i], values[minIndex]] = [values[minIndex], values[i]];
             tmp = values[i];
             values[i] = values[minIndex];
             values[minIndex] = tmp;
-            taskObj.pushValues([values[i], values[minIndex]]);
+            // taskObj.pushValues([values[i], values[minIndex]]);
             taskObj.pushValues(values);
         }
     }
@@ -443,7 +444,7 @@ function insertionSort(barObj, taskObj) {
         for (var j = i; j > 0 && k < values[j - 1]; j--) {
             taskObj.pushValues([k, values[j - 1]]);
             values[j] = values[j - 1];
-            taskObj.pushValues(values);
+            // taskObj.pushValues(values);
         }
 
         values[j] = k;
@@ -466,7 +467,7 @@ function quickSort(barObj, taskObj) {
         // taskObj.pushValues(values);
 
         if (left < right) {
-            var pivot = values[left + Math.floor((right - right) / 2)],
+            var pivot = values[left + ~ ~((right - right) / 2)],
                 left_new = left,
                 right_new = right;
 
@@ -664,8 +665,15 @@ function heapSort(barObj, taskObj) {
             i_big = i;
             c1 = 2 * i + 1;
             c2 = c1 + 1;
-            if (c1 < max && heap[c1] > heap[i_big]) i_big = c1;
-            if (c2 < max && heap[c2] > heap[i_big]) i_big = c2;
+            if (c1 < max && heap[c1] > heap[i_big]) {
+                taskObj.pushValues([heap[c1], heap[i_big]]);
+                i_big = c1;
+            }
+
+            if (c2 < max && heap[c2] > heap[i_big]) {
+                taskObj.pushValues([heap[c2], heap[i_big]]);
+                i_big = c2;
+            }
             if (i_big == i) return;
             var _ref4 = [heap[i_big], heap[i]];
             heap[i] = _ref4[0];
