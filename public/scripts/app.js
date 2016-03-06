@@ -414,17 +414,19 @@ function selectionSort(barObj, taskObj) {
                 taskObj.pushValues([values[i], values[minIndex]]);
                 minIndex = j;
             }
+
             // taskObj.pushValues(values);  
         }
+        // taskObj.pushValues([values[i], values[minIndex]]);
 
         if (minIndex != i) {
             // tmp = values[i];
             // values[i] = values[minIndex];
             // values[minIndex] = tmp;
-            // taskObj.pushValues([values[i], values[minIndex]]);
             var _ref2 = [values[minIndex], values[i]];
             values[i] = _ref2[0];
             values[minIndex] = _ref2[1];
+            taskObj.pushValues([values[i], values[minIndex]]);
             taskObj.pushValues(values);
         }
     }

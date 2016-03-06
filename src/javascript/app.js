@@ -387,15 +387,17 @@ function selectionSort(barObj, taskObj) {
                 minIndex = j;
                 
             }
+            
             // taskObj.pushValues(values);    
         }
+        // taskObj.pushValues([values[i], values[minIndex]]); 
 
         if (minIndex != i) {
             [values[i], values[minIndex]] = [values[minIndex], values[i]];
             // tmp = values[i];
             // values[i] = values[minIndex];
             // values[minIndex] = tmp;
-            // taskObj.pushValues([values[i], values[minIndex]]);
+            taskObj.pushValues([values[i], values[minIndex]]);
             taskObj.pushValues(values);
         }
     }
