@@ -381,19 +381,20 @@ function selectionSort(barObj, taskObj) {
         minIndex = i;
         for (var j = i + 1; j < values.length; j++) {
             // taskObj.pushValues(values);
-
+            // taskObj.pushValues([values[i], values[j]]); 
             if (values[j] < values[minIndex]) {
+                taskObj.pushValues([values[i], values[minIndex]]); 
                 minIndex = j;
-                taskObj.pushValues([values[j], values[minIndex]]);
+                
             }
             // taskObj.pushValues(values);    
         }
 
         if (minIndex != i) {
-            // [values[i], values[minIndex]] = [values[minIndex], values[i]];
-            tmp = values[i];
-            values[i] = values[minIndex];
-            values[minIndex] = tmp;
+            [values[i], values[minIndex]] = [values[minIndex], values[i]];
+            // tmp = values[i];
+            // values[i] = values[minIndex];
+            // values[minIndex] = tmp;
             // taskObj.pushValues([values[i], values[minIndex]]);
             taskObj.pushValues(values);
         }

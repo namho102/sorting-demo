@@ -409,20 +409,22 @@ function selectionSort(barObj, taskObj) {
         minIndex = i;
         for (var j = i + 1; j < values.length; j++) {
             // taskObj.pushValues(values);
-
+            // taskObj.pushValues([values[i], values[j]]);
             if (values[j] < values[minIndex]) {
+                taskObj.pushValues([values[i], values[minIndex]]);
                 minIndex = j;
-                taskObj.pushValues([values[j], values[minIndex]]);
             }
             // taskObj.pushValues(values);  
         }
 
         if (minIndex != i) {
-            // [values[i], values[minIndex]] = [values[minIndex], values[i]];
-            tmp = values[i];
-            values[i] = values[minIndex];
-            values[minIndex] = tmp;
+            // tmp = values[i];
+            // values[i] = values[minIndex];
+            // values[minIndex] = tmp;
             // taskObj.pushValues([values[i], values[minIndex]]);
+            var _ref2 = [values[minIndex], values[i]];
+            values[i] = _ref2[0];
+            values[minIndex] = _ref2[1];
             taskObj.pushValues(values);
         }
     }
@@ -485,9 +487,9 @@ function quickSort(barObj, taskObj) {
                 }
                 if (left_new <= right_new) {
                     taskObj.pushValues([left_new, right_new]);
-                    var _ref2 = [values[right_new], values[left_new]];
-                    values[left_new] = _ref2[0];
-                    values[right_new] = _ref2[1];
+                    var _ref3 = [values[right_new], values[left_new]];
+                    values[left_new] = _ref3[0];
+                    values[right_new] = _ref3[1];
 
                     taskObj.pushValues(values);
                     left_new += 1;
@@ -637,9 +639,9 @@ function heapSort(barObj, taskObj) {
         putArrayInHeapOrder(arr);
         var end = arr.length - 1;
         while (end > 0) {
-            var _ref3 = [arr[end], arr[0]];
-            arr[0] = _ref3[0];
-            arr[end] = _ref3[1];
+            var _ref4 = [arr[end], arr[0]];
+            arr[0] = _ref4[0];
+            arr[end] = _ref4[1];
 
             taskObj.pushValues(values);
             siftElementDownHeap(arr, 0, end);
@@ -675,9 +677,9 @@ function heapSort(barObj, taskObj) {
                 i_big = c2;
             }
             if (i_big == i) return;
-            var _ref4 = [heap[i_big], heap[i]];
-            heap[i] = _ref4[0];
-            heap[i_big] = _ref4[1];
+            var _ref5 = [heap[i_big], heap[i]];
+            heap[i] = _ref5[0];
+            heap[i_big] = _ref5[1];
 
             taskObj.pushValues(values);
             i = i_big;
