@@ -459,7 +459,7 @@ function quickSort(barObj, taskObj) {
                     right_new -= 1;
                 }
                 if (left_new <= right_new) {
-                    taskObj.pushValues([left_new, right_new]);
+                    // taskObj.pushValues([left_new, right_new]);
                     [values[left_new], values[right_new]] = [values[right_new], values[left_new]];
                     taskObj.pushValues(values);
                     left_new += 1;
@@ -648,12 +648,12 @@ function heapSort(barObj, taskObj) {
             c1 = 2 * i + 1;
             c2 = c1 + 1;
             if (c1 < max && heap[c1] > heap[i_big]) {
-                taskObj.pushValues([heap[c1], heap[i_big]]);
+                // taskObj.pushValues([heap[c1], heap[i_big]]);
                 i_big = c1;
             }
                 
             if (c2 < max && heap[c2] > heap[i_big]) {
-                taskObj.pushValues([heap[c2], heap[i_big]]);
+                // taskObj.pushValues([heap[c2], heap[i_big]]);
                 i_big = c2;
             }
             if (i_big == i) return;
