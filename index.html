@@ -77,7 +77,7 @@
     }
 }
 </code></pre>
-<pre><code class="language-javascript">function quicksort(left, right) {
+<pre><code class="language-javascript">function quickSort(left, right) {
   if (left < right) {
     var pivot = array[left + Math.floor((right - right) / 2)],
       left_new = left,
@@ -97,8 +97,8 @@
     }
     while (left_new <= right_new);
 
-    quicksort(left, right_new);
-    quicksort(left_new, right);
+    quickSort(left, right_new);
+    quickSort(left_new, right);
 
   }
 }
