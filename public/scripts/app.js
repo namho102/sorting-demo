@@ -40,6 +40,7 @@ var Controller = function () {
             $("a:contains(" + this.size + ")").addClass('selected');
             $("a:contains(" + this.speed + ")").addClass('selected');
             $("#algs").find('a').first().addClass('selected');
+            $("#code").find('pre').first().addClass('active');
         }
     }, {
         key: "setEvents",
@@ -223,6 +224,8 @@ var GraphicalSort = function () {
                 $('#algs a').removeClass('selected');
                 $(evt.target).addClass('selected');
 
+                $('#code pre').removeClass('active');
+                $('pre').eq(_this2.algs).addClass('active');
                 _this2.reload();
             });
         }

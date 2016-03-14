@@ -80,8 +80,8 @@ ul li {
 
 .bars {
     margin: 10px 20px 0 20px;
-    // width: 100%;
-    display: flex;
+    width: 50%;
+    // display: flex;
     svg {
         // width: 100%;
         width: 500px;
@@ -91,4 +91,21 @@ ul li {
             // fill: #20ADEE;
         }
     }
+}
+
+.code {
+    // display: flex;
+    // float: right;
+    width: 50%;
+    
+    pre {
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.main {
+    display: flex;
 }

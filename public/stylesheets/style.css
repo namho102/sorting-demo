@@ -15,7 +15,7 @@ a {
   cursor: pointer; }
   a.option {
     border: 2px solid #111;
-    padding: 6px 8px; }
+    padding: 5px 8px; }
     a.option:hover {
       border: 2px solid #FFF;
       color: #FFD700; }
@@ -61,6 +61,16 @@ ul li {
 
 .bars {
   margin: 10px 20px 0 20px;
-  display: flex; }
+  width: 50%; }
   .bars svg {
     width: 500px; }
+
+.code {
+  width: 50%; }
+  .code pre {
+    display: none; }
+    .code pre.active {
+      display: block; }
+
+.main {
+  display: flex; }

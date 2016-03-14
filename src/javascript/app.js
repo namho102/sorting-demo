@@ -45,7 +45,7 @@ class Controller {
         $("a:contains(" + this.size + ")").addClass('selected');
         $("a:contains(" + this.speed + ")").addClass('selected');
         $("#algs").find('a').first().addClass('selected');
-
+        $("#code").find('pre').first().addClass('active');
     }
 
     setEvents() {
@@ -213,7 +213,9 @@ class GraphicalSort {
             // console.log(this.algs);
             $('#algs a').removeClass('selected');
             $(evt.target).addClass('selected');
-
+            
+            $('#code pre').removeClass('active');
+            $('pre').eq(this.algs).addClass('active');
             this.reload();
         });
     }
