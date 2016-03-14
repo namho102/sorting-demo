@@ -15,7 +15,7 @@ a {
   cursor: pointer; }
   a.option {
     border: 2px solid #111;
-    padding: 5px 8px; }
+    padding: 6px 8px; }
     a.option:hover {
       border: 2px solid #FFF;
       color: #FFD700; }
@@ -68,7 +68,8 @@ ul li {
 .code {
   width: 50%; }
   .code pre {
-    display: none; }
+    display: none;
+    height: 450px; }
     .code pre.active {
       display: block; }
 
