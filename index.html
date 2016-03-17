@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Visualization and Comparison of Sorting Algorithms</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" href="public/stylesheets/theme/funky.css">
+    <!--<link rel="stylesheet" href="public/stylesheets/theme/okaidia.css">-->
+    <!--<link rel="stylesheet" href="public/stylesheets/theme/twilight.css">-->
     <link rel="stylesheet" href="public/stylesheets/style.css">
 </head>
 
@@ -41,33 +44,10 @@
         </div>
 
         <div class="code" id="code">
-            <pre><code class="language-javascript">function bubbleSort(a) {
-	var swapped;
-	do {
-		swapped = false;
-		for (var i = 0; i < a.length - 1; i++) {
-            if (a[i] > a[i + 1]) {
-				swap(a[i], a[i + 1]);
-				swapped = true;
-			}
-		}
-	} while (swapped);
-}</code></pre>
+            <pre data-line="6,7"  data-src="public/scripts/code/bubble.js"></pre>
+            <pre data-line="4,6,7,9,10" class="line-numbers" data-src="public/scripts/code/selection.js"></pre>
 
-<pre><code class="language-javascript">function selectionSort(a) {
-    var minIndex;
-    for (var i = 0; i < a.length - 1; i++) {
-        minIndex = i;
-        for (var j = i + 1; j < a.length; j++) {
-            if (a[j] < a[minIndex]) 
-                minIndex = j;
-        }
-        if (minIndex != i) 
-            swap(a[i], a[minIndex]);
-    }
-}
-</code></pre>
-<pre><code class="language-javascript">function insertionSort(a) {
+<pre ><code class="language-javascript">function insertionSort(a) {
     for (var i = 0; i < a.length; i++) {
         var k = a[i];
         for (var j = i; j > 0 && k < a[j - 1]; j--) {

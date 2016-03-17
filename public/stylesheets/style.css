@@ -72,6 +72,10 @@ ul li {
     height: 450px; }
     .code pre.active {
       display: block; }
+    .code pre .line-highlight {
+      display: none; }
+      .code pre .line-highlight.active {
+        display: block; }
 
 .main {
   display: flex; }

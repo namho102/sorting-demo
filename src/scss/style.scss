@@ -104,6 +104,13 @@ ul li {
         &.active {
             display: block;
         }
+        
+        .line-highlight {
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
     }
 }
 

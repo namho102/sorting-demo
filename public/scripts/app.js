@@ -41,6 +41,7 @@ var Controller = function () {
             $("a:contains(" + this.speed + ")").addClass('selected');
             $("#algs").find('a').first().addClass('selected');
             $("#code").find('pre').first().addClass('active');
+            $('.line-highlight').removeClass('active');
         }
     }, {
         key: "setEvents",
@@ -160,8 +161,12 @@ var Bars = function () {
         value: function highlight(elements) {
             // console.log(elements.length);
             // var rects = $('#bars').find('rect');
-            // console.log('highlight');
+
             var c = '#B1D5E5';
+
+            // $('rect').each(function(rect) {
+            //    rect.css('fill', '#20ADEE');
+            // });
             for (var i = 0; i < elements.length; i++) {
                 $("rect[data-val=" + elements[i] + "]").css('fill', c);
             }
@@ -299,16 +304,19 @@ var Task = function () {
                 nextItem = queue.shift();
                 if (!nextItem) return;
                 // console.log(nextItem);
-                console.log(bars.bars.length);
-                if (nextItem.length >= bars.bars.length) {
-                    bars.renderData(nextItem, true);
-                } else {
-                    bars.highlight(nextItem);
-                }
+                // console.log(bars.bars.length);
+                if (Array.isArray(nextItem)) {
+                    if (nextItem.length >= bars.bars.length) {
+                        bars.renderData(nextItem, true);
+                    } else {
+                        // bars.highlight(nextItem);
+                    }
+                } else {}
+                    // activeCode(nextItem);
 
-                // bars.highlight(nextItem);
-                // processItem(nextItem);
-                // console.log(self.getDelay());
+
+                    // processItem(nextItem);
+                    // console.log(self.getDelay());
 
                 self.timeoutID = setTimeout(processNextBatch, self.getDelay());
                 // self._setTimeout(processNextBatch);
@@ -325,11 +333,16 @@ var Task = function () {
             // console.log(nextItem.length);
             // console.log(this.bars.bars.length);
 
-            if (nextItem.length >= this.bars.bars.length) {
-                this.bars.renderData(nextItem, true);
+            if (Array.isArray(nextItem)) {
+                if (nextItem.length >= this.bars.bars.length) {
+                    this.bars.renderData(nextItem, true);
+                } else {
+                    this.bars.highlight(nextItem);
+                }
             } else {
-                this.bars.highlight(nextItem);
+                activeCode(nextItem);
             }
+
             // this.bars.renderData(nextItem);
         }
 
@@ -341,6 +354,11 @@ var Task = function () {
         key: "cancel",
         value: function cancel(func) {
             clearTimeout(this.timeoutID);
+        }
+    }, {
+        key: "pushNumber",
+        value: function pushNumber(number) {
+            this.tasks.push(number);
         }
     }, {
         key: "pushValues",
@@ -374,21 +392,22 @@ function bubbleSort(barObj, taskObj) {
     var done = false;
     while (!done) {
         done = true;
+
         for (var i = 1; i < values.length; i++) {
             // taskObj.pushValues(values);
-
+            taskObj.pushNumber(6);
+            // taskObj.pushValues([values[i - 1], values[i]]);
             if (values[i - 1] > values[i]) {
-                // barObj.hightlight([values[i - 1], values[i]]);
-                taskObj.pushValues([values[i - 1], values[i]]);
-                done = false;
 
+                taskObj.pushNumber(7);
 
-                // var tempValues = values.slice(0);
-                // taskObj.pushValues(tempValues);
+                // taskObj.pushValues([values[i - 1], values[i]]);
                 var _ref = [values[i], values[i - 1]];
                 values[i - 1] = _ref[0];
                 values[i] = _ref[1];
                 taskObj.pushValues(values);
+
+                done = false;
             }
         }
     }

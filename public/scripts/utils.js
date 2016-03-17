@@ -48,6 +48,11 @@ function getRandomColor() {
     return color;
 }
 
+function activeCode(numberLine) {
+    $('.line-highlight').removeClass('active');
+    $(".line-highlight[data-start=" + numberLine + "]").addClass('active');
+}
+
 Array.prototype.insert = function (value, index) {
     var array = this;
     for (var i = array.length - 1; index <= i; i--) {

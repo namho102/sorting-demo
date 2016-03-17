@@ -46,6 +46,8 @@ class Controller {
         $("a:contains(" + this.speed + ")").addClass('selected');
         $("#algs").find('a').first().addClass('selected');
         $("#code").find('pre').first().addClass('active');
+        $('.line-highlight').removeClass('active');
+
     }
 
     setEvents() {
@@ -158,8 +160,12 @@ class Bars {
     highlight(elements) {
         // console.log(elements.length);
         // var rects = $('#bars').find('rect');
-        // console.log('highlight');
+
         var c = '#B1D5E5';
+        
+        // $('rect').each(function(rect) {
+        //    rect.css('fill', '#20ADEE'); 
+        // });
         for (var i = 0; i < elements.length; i++) {
             $("rect[data-val=" + elements[i] + "]").css('fill', c);
         }
@@ -279,15 +285,19 @@ class Task {
             nextItem = queue.shift();
             if (!nextItem) return;
             // console.log(nextItem);
-            console.log(bars.bars.length);
-            if (nextItem.length >= bars.bars.length) {
-                bars.renderData(nextItem, true);
+            // console.log(bars.bars.length);
+            if(Array.isArray(nextItem)) {
+                if (nextItem.length >= bars.bars.length) {
+                    bars.renderData(nextItem, true);
+                }
+                else {
+                    // bars.highlight(nextItem);
+                }
             }
             else {
-                bars.highlight(nextItem);
+                // activeCode(nextItem);
             }
             
-            // bars.highlight(nextItem);
             // processItem(nextItem);
             // console.log(self.getDelay());
             
@@ -305,12 +315,18 @@ class Task {
         // console.log(nextItem.length);
         // console.log(this.bars.bars.length);
         
-        if (nextItem.length >= this.bars.bars.length) {
-            this.bars.renderData(nextItem, true);
+        if(Array.isArray(nextItem)) {
+            if (nextItem.length >= this.bars.bars.length) {
+                this.bars.renderData(nextItem, true);
+            }
+            else {
+                this.bars.highlight(nextItem);
+            }
         }
         else {
-            this.bars.highlight(nextItem);
+            activeCode(nextItem);
         }
+        
         // this.bars.renderData(nextItem);
     }
     
@@ -321,7 +337,11 @@ class Task {
     cancel(func) {
         clearTimeout(this.timeoutID);
     }
-
+    
+    pushNumber(number) {
+        this.tasks.push(number);
+    }
+    
     pushValues(values) {
         var tempVar = values.slice(0); //creating not copying, !IMPORTANT !FUCKING ERROR
         this.tasks.push(tempVar);
@@ -348,18 +368,20 @@ function bubbleSort(barObj, taskObj) {
     var done = false;
     while (!done) {
         done = true;
+        
         for (var i = 1; i < values.length; i++) {
             // taskObj.pushValues(values);
-
-            if (values[i - 1] > values[i]) {
-                // barObj.hightlight([values[i - 1], values[i]]);
-                taskObj.pushValues([values[i - 1], values[i]]);
-                done = false;
+            taskObj.pushNumber(6);
+            // taskObj.pushValues([values[i - 1], values[i]]);
+            if (values[i - 1] > values[i]) {                              
+                
+                taskObj.pushNumber(7);
+                
                 [values[i - 1], values[i]] = [values[i], values[i - 1]];
-
-                // var tempValues = values.slice(0);
-                // taskObj.pushValues(tempValues);
+                // taskObj.pushValues([values[i - 1], values[i]]);
                 taskObj.pushValues(values);
+                
+                done = false;
             }
         }
     }
