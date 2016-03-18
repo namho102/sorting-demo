@@ -36,136 +36,30 @@
             <a id="process"><i class="icon icon-play">&#xe801;</i></a>
             <a id="start"><i class="icon icon-fast-fw">&#xe803;</i></a>
         </div>
-        
+
         <div class="main">
             <div class="bars">
-            <div id="bars"></div>
-            <div id="bars2"></div>
+                <div id="bars"></div>
+                <div id="bars2"></div>
+            </div>
+
+            <div class="code" id="code">
+                <pre data-line="6,7" data-src="public/scripts/code/bubble.js"></pre>
+                <pre data-line="4,6,7,9,10" class="line-numbers" data-src="public/scripts/code/selection.js"></pre>
+                <pre data-line="" class="line-numbers" data-src="public/scripts/code/insertion.js"></pre>
+                <pre data-line="" class="line-numbers" data-src="public/scripts/code/quick.js"></pre>
+                <pre data-line="" class="line-numbers" data-src="public/scripts/code/merge.js"></pre>
+                <pre data-line="" class="line-numbers" data-src="public/scripts/code/heap.js"></pre>
+            </div>
         </div>
-
-        <div class="code" id="code">
-            <pre data-line="6,7"  data-src="public/scripts/code/bubble.js"></pre>
-            <pre data-line="4,6,7,9,10" class="line-numbers" data-src="public/scripts/code/selection.js"></pre>
-
-<pre ><code class="language-javascript">function insertionSort(a) {
-    for (var i = 0; i < a.length; i++) {
-        var k = a[i];
-        for (var j = i; j > 0 && k < a[j - 1]; j--) {
-            a[j] = a[j - 1];
-        }
-        a[j] = k;
-    }
-}
-</code></pre>
-<pre><code class="language-javascript">function quickSort(left, right) {
-  if (left < right) {
-    var pivot = array[left + Math.floor((right - right) / 2)],
-      left_new = left,
-      right_new = right;
-    do {
-      while (array[left_new] < pivot) {
-        left_new += 1;
-      }
-      while (pivot < array[right_new]) {
-        right_new -= 1;
-      }
-      if (left_new <= right_new) {
-        swap(left_new, right_new);
-        left_new += 1;
-        right_new -= 1;
-      }
-    }
-    while (left_new <= right_new);
-
-    quickSort(left, right_new);
-    quickSort(left_new, right);
-
-  }
-}
-</code></pre>
-<pre><code class="language-javascript">function mergeSort(a) {
-    if (a.length > 1) {
-        var mid = ~ ~(a.length / 2);
-        var lefthalf = a.slice(0, mid),
-            righthalf = a.slice(mid);
-
-        mergeSort(lefthalf);
-        mergeSort(righthalf);
-
-        var i = 0,
-            j = 0,
-            k = 0;
-        while (i < a.length && j < a.length) {
-            if (a[i] < a[j]) {
-                a[k] = a[i];
-                i = i + 1;
-            } else {
-                a[k] = a[j];
-                j = j + 1;
-            }
-            k = k + 1;
-        }
-
-        while (i < lefthalf.length) {
-            a[k] = a[i];
-            i = i + 1;
-            k = k + 1;
-        }
-
-        while (j < righthalf.length) {
-            a[k] = a[j];
-            j = j + 1;
-            k = k + 1;
-        }
-    }
-}
-</code></pre>
-<pre><code class="language-javascript"> function heapSort(arr) {
-    putArrayInHeapOrder(arr);
-    end = arr.length - 1;
-    while(end > 0) {
-        swap(arr, 0, end);
-        siftElementDownHeap(arr, 0, end);
-        end -= 1
-    }
-}
- 
-function putArrayInHeapOrder(arr) {
-    var i;
-    i = arr.length / 2 - 1;
-    i = Math.floor(i);
-    while (i >= 0) {
-        siftElementDownHeap(arr, i, arr.length);
-        i -= 1;
-    }
-}
- 
-function siftElementDownHeap(heap, i, max) {
-    var i_big, c1, c2;
-    while(i < max) {
-        i_big = i;
-        c1 = 2*i + 1;
-        c2 = c1 + 1;
-        if (c1 < max && heap[c1] > heap[i_big])
-            i_big = c1;
-        if (c2 < max && heap[c2] > heap[i_big])
-            i_big = c2;
-        if (i_big == i) return;
-        swap(heap,i, i_big);
-        i = i_big;
-    }
-}
-</code></pre>
     </div>
-        </div>
-        </div>
-        
-        
-    
+
+
+
     <script src="public/libs/jquery.min.js"></script>
     <script src="public/libs/d3.v3.min.js"></script>
-    <script src="public/scripts/utils.js"></script> 
-    <script src="public/scripts/prism.js"></script> 
+    <script src="public/scripts/utils.js"></script>
+    <script src="public/scripts/prism.js"></script>
     <script src="public/scripts/app.js"></script>
 </body>
 
