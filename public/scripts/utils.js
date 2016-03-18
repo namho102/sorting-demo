@@ -49,8 +49,8 @@ function getRandomColor() {
 }
 
 function activeCode(numberLine) {
-    $('.line-highlight').removeClass('active');
-    $(".line-highlight[data-start=" + numberLine + "]").addClass('active');
+    $('div.line-highlight').removeClass('active');
+    $("div.line-highlight[data-start=" + numberLine + "]").addClass('active');
 }
 
 Array.prototype.insert = function (value, index) {

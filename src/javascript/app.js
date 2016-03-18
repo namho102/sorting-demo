@@ -46,7 +46,7 @@ class Controller {
         $("a:contains(" + this.speed + ")").addClass('selected');
         $("#algs").find('a').first().addClass('selected');
         $("#code").find('pre').first().addClass('active');
-        $('.line-highlight').removeClass('active');
+        $('div.line-highlight').removeClass('active');
 
     }
 
