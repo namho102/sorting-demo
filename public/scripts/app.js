@@ -401,10 +401,11 @@ function bubbleSort(barObj, taskObj) {
 
                 taskObj.pushNumber(7);
 
-                // taskObj.pushValues([values[i - 1], values[i]]);
                 var _ref = [values[i], values[i - 1]];
                 values[i - 1] = _ref[0];
                 values[i] = _ref[1];
+
+                taskObj.pushValues([values[i - 1], values[i]]);
                 taskObj.pushValues(values);
 
                 done = false;

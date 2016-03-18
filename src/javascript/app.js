@@ -378,7 +378,7 @@ function bubbleSort(barObj, taskObj) {
                 taskObj.pushNumber(7);
                 
                 [values[i - 1], values[i]] = [values[i], values[i - 1]];
-                // taskObj.pushValues([values[i - 1], values[i]]);
+                taskObj.pushValues([values[i - 1], values[i]]);
                 taskObj.pushValues(values);
                 
                 done = false;
