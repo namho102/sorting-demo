@@ -106,9 +106,15 @@ ul li {
         }
         
         .line-highlight {
-            display: none;
+            // display: none;
+            //  opacity: 0;
+             visibility: hidden;
             &.active {
-                display: block;
+                // opacity: 1;
+                visibility: visible;
+                // transform: scale(1);
+                // display: block;
+                transition: all .3s ease .15s;
             }
         }
     }

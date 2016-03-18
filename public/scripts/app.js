@@ -163,7 +163,7 @@ var Bars = function () {
             // var rects = $('#bars').find('rect');
 
             var c = '#B1D5E5';
-
+            $('rect').css('fill', '#20ADEE');
             // $('rect').each(function(rect) {
             //    rect.css('fill', '#20ADEE');
             // });
@@ -243,6 +243,8 @@ var GraphicalSort = function () {
         key: "reload",
         value: function reload() {
             console.log('reloading');
+            $('div.line-highlight').removeClass('active');
+
             this.tasks.clean();
             this.tasks.cancel();
 
@@ -396,16 +398,15 @@ function bubbleSort(barObj, taskObj) {
         for (var i = 1; i < values.length; i++) {
             // taskObj.pushValues(values);
             taskObj.pushNumber(6);
-            // taskObj.pushValues([values[i - 1], values[i]]);
+            taskObj.pushValues([values[i - 1], values[i]]);
             if (values[i - 1] > values[i]) {
 
                 taskObj.pushNumber(7);
 
+                // taskObj.pushValues([values[i - 1], values[i]]);
                 var _ref = [values[i], values[i - 1]];
                 values[i - 1] = _ref[0];
                 values[i] = _ref[1];
-
-                taskObj.pushValues([values[i - 1], values[i]]);
                 taskObj.pushValues(values);
 
                 done = false;
@@ -431,17 +432,17 @@ function selectionSort(barObj, taskObj) {
     for (var i = 0; i < values.length - 1; i++) {
         minIndex = i;
         for (var j = i + 1; j < values.length; j++) {
-            // taskObj.pushValues(values);
-            // taskObj.pushValues([values[i], values[j]]);
+
+            taskObj.pushNumber(6);
+
+            taskObj.pushValues([values[j], values[minIndex]]);
             if (values[j] < values[minIndex]) {
-                taskObj.pushValues([values[i], values[minIndex]]);
+                taskObj.pushNumber(7);
                 minIndex = j;
             }
-
-            // taskObj.pushValues(values);  
         }
         // taskObj.pushValues([values[i], values[minIndex]]);
-
+        taskObj.pushNumber(10);
         if (minIndex != i) {
             // tmp = values[i];
             // values[i] = values[minIndex];
