@@ -311,14 +311,14 @@ var Task = function () {
                     if (nextItem.length >= bars.bars.length) {
                         bars.renderData(nextItem, true);
                     } else {
-                        // bars.highlight(nextItem);
+                        bars.highlight(nextItem);
                     }
                 } else {}
-                    // activeCode(nextItem);
+                // activeCode(nextItem);
 
 
-                    // processItem(nextItem);
-                    // console.log(self.getDelay());
+                // processItem(nextItem);
+                // console.log(self.getDelay());
 
                 self.timeoutID = setTimeout(processNextBatch, self.getDelay());
                 // self._setTimeout(processNextBatch);
@@ -361,6 +361,7 @@ var Task = function () {
         key: "pushNumber",
         value: function pushNumber(number) {
             this.tasks.push(number);
+            return true;
         }
     }, {
         key: "pushValues",
@@ -432,7 +433,6 @@ function selectionSort(barObj, taskObj) {
     for (var i = 0; i < values.length - 1; i++) {
         minIndex = i;
         for (var j = i + 1; j < values.length; j++) {
-
             taskObj.pushNumber(6);
 
             taskObj.pushValues([values[j], values[minIndex]]);
@@ -469,12 +469,14 @@ function insertionSort(barObj, taskObj) {
     //main
     for (var i = 0; i < values.length; i++) {
         var k = values[i];
-        for (var j = i; j > 0 && k < values[j - 1]; j--) {
+        for (var j = i; taskObj.pushNumber(4) && j > 0 && k < values[j - 1]; j--) {
+            taskObj.pushNumber(5);
             taskObj.pushValues([k, values[j - 1]]);
             values[j] = values[j - 1];
-            // taskObj.pushValues(values);
+            taskObj.pushValues(values);
         }
 
+        taskObj.pushNumber(7);
         values[j] = k;
         taskObj.pushValues(values);
     }
