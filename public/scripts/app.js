@@ -368,6 +368,7 @@ var Task = function () {
         value: function pushValues(values) {
             var tempVar = values.slice(0); //creating not copying, !IMPORTANT !FUCKING ERROR
             this.tasks.push(tempVar);
+            return true;
             // console.log(this.tasks);
         }
     }, {
@@ -469,9 +470,9 @@ function insertionSort(barObj, taskObj) {
     //main
     for (var i = 0; i < values.length; i++) {
         var k = values[i];
-        for (var j = i; taskObj.pushNumber(4) && j > 0 && k < values[j - 1]; j--) {
+        for (var j = i; taskObj.pushNumber(4) && j > 0 && taskObj.pushValues([k, values[j - 1]]) && k < values[j - 1]; j--) {
             taskObj.pushNumber(5);
-            taskObj.pushValues([k, values[j - 1]]);
+            // taskObj.pushValues([k, values[j - 1]]);
             values[j] = values[j - 1];
             taskObj.pushValues(values);
         }
